@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bird Species Classification</title>
+
+    <link rel="icon" type="image/x-icon" href="../static/uploads/icon.png">
+    <link rel="stylesheet" href="../static/css/result_style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <a href="{{ url_for('home') }}#set" class="go-to-index" title="Back to Upload">
+        <i class="fa-solid fa-circle-arrow-left"></i> Back
+    </a>
+
+    <h1>Prediction Result</h1>
+
+    <h2>Prediction: <span id="bird-name" style="color: #2563eb;">{{ prediction }}</span></h2>
+
+    {% if confidence >= 0.9 %}
+    <h3 class="confidence-high">Confidence: {{ '%.2f' | format(confidence * 100) }}%</h3>
+    {% elif confidence >= 0.7 %}
+    <h3 class="confidence-medium">Confidence: {{ '%.2f' | format(confidence * 100) }}%</h3>
+    {% else %}
+    <h3 class="confidence-low">Confidence: {{ '%.2f' | format(confidence * 100) }}%</h3>
+    {% endif %}
+
+    <div class="grid-container">
+        <div class="bird-image">
+            <img src="{{ image_path }}" alt="Uploaded Bird Image">
+        </div>
+        <div class="description-box bird-description" id="bird-description">
+            <p><strong>About the Bird:</strong><br>Loading description...</p>
+        </div>
+    </div>
+
+    <script src="../static/js/result_script.js"></script>
+</body>
+
+</html>
