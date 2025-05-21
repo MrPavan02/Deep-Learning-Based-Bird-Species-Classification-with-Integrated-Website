@@ -3,8 +3,11 @@ import os
 from model.predict import predict_image
 
 app = Flask(__name__)
-app.secret_key = 'your_secret_key'
-UPLOAD_FOLDER = 'static/trash'
+# Use environment variables for secrets
+app.secret_key = os.environ.get('SECRET_KEY', 'dev-key') 
+
+# Store uploads in a persistent folder (Render provides /var/data)
+UPLOAD_FOLDER = '/var/data/uploads'  
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 
 @app.route('/', methods=['GET', 'POST'])
