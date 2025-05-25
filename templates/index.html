@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bird Species Classification</title>
+
+    <link rel="icon" type="image/x-icon" href="../static/uploads/icon.png">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+    <div class="fade-overlay"></div>
+
+    <header>
+        <div class="title">Bird Species Classification</div>
+        <nav>
+            <ul>
+                <li><a href="#home" class="nav-link" id="home-link">Overview</a></li>
+                <li><a href="#set" class="nav-link" id="set-link">Predict Bird</a></li>
+                <li><a href="#about" class="nav-link" id="about-link">Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="home" class="page">
+            <div class="page-container">
+
+                <div class="button-grid">
+                    <a href="{{ url_for('project_report') }}" class="button-style">Project Report</a>
+                    <a href="https://www.kaggle.com/datasets/vinjamuripavan/bird-species/data" class="button-style"
+                        target="_blank">View Dataset</a>
+                    <a href="https://drive.google.com/drive/folders/19nrP57EG8xvF2NsfNcG7D5BqEM47X0HD?usp=sharing"
+                        class="button-style" target="_blank">Download Model</a>
+                </div>
+
+                <a href="#set" class="go-to-set-page" style="font-size: 20px;">Classify a Bird</a>
+
+                <div class="cards-wrapper">
+                    <!-- Card 1 -->
+                    <div class="flip-container">
+                        <div class="card">
+                            <div class="front">Model Stats</div>
+                            <div class="back">
+                                <div class="back-content">
+                                    <h3 style="text-align: center; padding-bottom: 5px;">Model Stats</h3>
+                                    <h2 class="model-stats">1. Total Number of Bird Species Classified</h2>
+                                    <p>525 Species</p>
+
+                                    <h2 class="model-stats">2. Dataset Information</h2>
+                                    <table style="border-collapse: collapse;">
+                                        <thead>
+                                            <tr>
+                                                <th style="padding: 5px 24px; text-align: left;">Data Split</th>
+                                                <th style="padding: 5px 24px; text-align: left;">Number of Images</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding: 5px 24px;">Training</td>
+                                                <td style="padding: 5px 24px;">84,635 Images</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px 24px;">Validation</td>
+                                                <td style="padding: 5px 24px;">2,625 Images</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px 24px;">Testing</td>
+                                                <td style="padding: 5px 24px;">2,625 Images</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+
+                                    <h2 class="model-stats">3. Model Performance</h2>
+                                    <table style="border-collapse: collapse;">
+                                        <thead>
+                                            <tr>
+                                                <th style="padding: 5px 24px; text-align: left;">Metric</th>
+                                                <th style="padding: 5px 24px; text-align: left;">Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td style="padding: 5px 24px;">Initial Accuracy</td>
+                                                <td style="padding: 5px 24px;">89.37%</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px 24px;">Final Accuracy</td>
+                                                <td style="padding: 5px 24px;">94.5%</td>
+                                            </tr>
+                                            <tr>
+                                                <td style="padding: 5px 24px;">Loss</td>
+                                                <td style="padding: 5px 24px;">Low / Stable (After Fine-tuning)</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="flip-container">
+                        <div class="card">
+                            <div class="front">Technology Stack</div>
+                            <div class="back">
+                                <div class="back-content">
+                                    <h3 style="text-align: center; padding-bottom: 5px;">Tech Stack / Tools Used</h3>
+                                    <div class="tech-category" style="margin-top: 25px; font-weight: bold;">Programming
+                                        Language:</div>
+                                    <ul style="padding-left: 24px;">
+                                        <li style="padding: 4px 0;">Python</li>
+                                    </ul>
+
+                                    <div class="tech-category" style="margin-top: 16px; font-weight: bold;">Web
+                                        Framework:</div>
+                                    <ul style="padding-left: 24px;">
+                                        <li style="padding: 4px 0;">Flask</li>
+                                    </ul>
+
+                                    <div class="tech-category" style="margin-top: 16px; font-weight: bold;">Deep
+                                        Learning & Machine Learning Libraries:</div>
+                                    <ul style="padding-left: 24px;">
+                                        <li style="padding: 4px 0;">TensorFlow</li>
+                                        <li style="padding: 4px 0;">Keras</li>
+                                        <li style="padding: 4px 0;">NumPy</li>
+                                    </ul>
+
+                                    <div class="tech-category" style="margin-top: 16px; font-weight: bold;">Image
+                                        Processing:</div>
+                                    <ul style="padding-left: 24px;">
+                                        <li style="padding: 4px 0;">Pillow</li>
+                                    </ul>
+
+                                    <div class="tech-category" style="margin-top: 16px; font-weight: bold;">Data
+                                        Handling & Visualization:</div>
+                                    <ul style="padding-left: 24px;">
+                                        <li style="padding: 4px 0;">Pandas</li>
+                                        <li style="padding: 4px 0;">Matplotlib</li>
+                                    </ul>
+
+                                    <div class="tech-category" style="margin-top: 16px; font-weight: bold;">Frontend
+                                        Technologies:</div>
+                                    <ul style="padding-left: 24px;">
+                                        <li style="padding: 4px 0;">HTML</li>
+                                        <li style="padding: 4px 0;">CSS</li>
+                                        <li style="padding: 4px 0;">JavaScript</li>
+                                    </ul>
+
+                                    <div class="tech-category" style="margin-top: 16px; font-weight: bold;">TensorFlow /
+                                        Keras Components Used:</div>
+                                    <ul style="padding-left: 24px;">
+                                        <li style="padding: 4px 0;">Layers: Dense, Flatten, Conv2D, MaxPooling2D,
+                                            Activation, BatchNormalization, Dropout, GlobalAveragePooling2D</li>
+                                        <li style="padding: 4px 0;">Optimizer: Adam</li>
+                                        <li style="padding: 4px 0;">Preprocessing: ImageDataGenerator</li>
+                                        <li style="padding: 4px 0;">Model Building: Sequential API</li>
+                                    </ul>
+
+                                    <div class="tech-category" style="margin-top: 16px; font-weight: bold;">Other Python
+                                        Libraries:</div>
+                                    <ul style="padding-left: 24px;">
+                                        <li style="padding: 4px 0;">OS</li>
+                                        <li style="padding: 4px 0;">Pathlib</li>
+                                        <li style="padding: 4px 0;">Random</li>
+                                    </ul>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="flip-container">
+                        <div class="card">
+                            <div class="front">Model Architecture</div>
+                            <div class="back">
+                                <div class="back-content">
+                                    <h3 style="text-align: center; padding-bottom: 35px;">Model Architecture</h3>
+                                    InceptionV3 is a deep convolutional neural network architecture developed by Google,
+                                    designed for efficient and high-accuracy image classification tasks.<br><br>
+                                    It processes input images of size 299x299x3 and uses a unique modular design called
+                                    Inception modules, which extract multi-scale features by applying different types of
+                                    convolutions (1x1, 3x3, 5x5) in parallel within the same layer block.<br><br>
+                                    The model begins with a series of convolutions and max-pooling layers (called the
+                                    Stem), followed by multiple Inception blocks that help in reducing computational
+                                    cost while preserving important features.<br><br>
+                                    Factorized convolutions, dimensionality reduction with 1x1 filters, and auxiliary
+                                    classifiers are used throughout the model to improve learning efficiency and
+                                    accuracy.<br><br>
+                                    The model ends with a Global Average Pooling layer, generating a compact feature map
+                                    of size 8x8x2048, which can be further used for classification or feature extraction
+                                    tasks.<br><br>
+                                    The specific version you provided excludes the top classification layers, making it
+                                    suitable for transfer learning or building custom classifiers on top.<br><br>
+                                    InceptionV3 strikes a balance between computational efficiency and performance, with
+                                    around 23.8 million parameters (excluding top layers).
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <a href="#set" class="go-to-set"><i class="fa-solid fa-caret-down"></i></a>
+        </section>
+
+        <section id="set" class="page">
+            <div class="set-container">
+
+                <div class="left-side">
+                    <h2>Key things to be noted before uploading the image</h2>
+
+                    <div class="instruction-grid">
+                        <div class="instruction">
+                            <p>1. Only one bird should be in the image</p>
+                            <img src="../static/uploads/single-bird-example.png" alt="Single Bird Example">
+                        </div>
+
+                        <div class="instruction">
+                            <p>2. Use a close-up or full-body shot</p>
+                            <img src="../static/uploads/zoomed-bird-example.png" alt="Zoomed Bird Example">
+                        </div>
+
+                        <div class="instruction">
+                            <p>3. Ensure the image is clear and high-quality</p>
+                            <img src="../static/uploads/clear-image-example.png" alt="Clear Image Example">
+                        </div>
+
+                        <div class="instruction">
+                            <p>4. Note: Predictions may not be 100% accurate</p>
+                            <img src="../static/uploads/accuracy-warning.png" alt="Accuracy Warning">
+                        </div>
+                    </div>
+
+                    <div class="trained-species-note">
+                        <p>The model is trained on 525 bird species only</p>
+                        <a href="{{ url_for('show_birds') }}" target="_blank" class="button-style"
+                            style="width: 260px;">Show Trained Species List</a>
+                    </div>
+
+                </div>
+
+                <!-- Left Side -->
+                <div class="right-side">
+                    <form id="uploadForm" method="POST" action="/" enctype="multipart/form-data"
+                        onsubmit="handleSubmit(event)">
+                        <div class="upload-area" id="uploadArea">
+                            <p id="uploadText">Drag & Drop or Click to Upload</p>
+                            <input type="file" id="fileInput" name="image" accept="image/*" hidden>
+                        </div>
+
+                        <div id="fileName"></div>
+
+                        <button href="{{ url_for('home') }}" class="button-style" type="submit"
+                            style="font-size: 20px; display: flex; align-items: center; justify-content: center; height: 40px;">
+                            Predict
+                        </button>
+                    </form>
+
+                    <a href="#home" class="back-to-home"><i class="fa-solid fa-caret-up"></i></a>
+                    <a href="#about" class="go-to-about"><i class="fa-solid fa-caret-down"></i></a>
+                </div>
+
+            </div>
+        </section>
+
+
+        <section id="about" class="page">
+            <div class="info-box">
+                <h2>Meet Our Developers</h2>
+                <div class="developer-list">
+                    <div class="developer">
+                        <div class="t-avatar-container" onclick="t_flipAvatar()">
+                            <img class="t-avatar-image-front" src="../static/uploads/tarun_avatar.png" alt="Avatar">
+                            <img class="t-avatar-image-back" src="../static/uploads/tarun_real_img.jpg"
+                                alt="Original Avatar">
+                        </div>
+
+                        <div class="info">
+                            <p class="name">Tarun sai Nyalakanti</p>
+                            <div class="contacts">
+                                <div class="email-copy-container">
+                                    <a href="#" class="email-copy-link" onclick="copyEmail('nyalakantitarunsai@gmail.com', this, event)">
+                                        <img src="../static/uploads/email-icon.png" alt="Email">
+                                    </a>
+                                    <div class="copy-message">Email ID copied!</div>
+                                </div>
+
+                                <a href="https://www.linkedin.com/in/tarun-sai-nyalakanti/" target="_blank"><img
+                                        src="../static/uploads/linkedin-icon.png" alt="LinkedIn"></a>
+                                <a href="https://github.com/N-TarunSai" target="_blank"><img
+                                        src="../static/uploads/github-icon.png" alt="GitHub"></a>
+                                <a href="https://www.instagram.com/tarun_6503/" target="_blank"><img
+                                        src="../static/uploads/instagram-icon.png" alt="Intagram"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="developer">
+                        <div class="k-avatar-container" onclick="k_flipAvatar()">
+                            <img class="k-avatar-image-front" src="../static/uploads/kashyap_avatar.png" alt="Avatar">
+                            <img class="k-avatar-image-back" src="../static/uploads/kashyap_real_img.jpg"
+                                alt="Original Avatar">
+                        </div>
+
+                        <div class="info">
+                            <p class="name">L R V Kashyap</p>
+                            <div class="contacts">
+                                <div class="email-copy-container">
+                                    <a href="#" class="email-copy-link" onclick="copyEmail('kashyaplrv@gmail.com', this, event)">
+                                        <img src="../static/uploads/email-icon.png" alt="Email">
+                                    </a>
+                                    <div class="copy-message">Email ID copied!</div>
+                                </div>
+                                
+                                <a href="https://www.linkedin.com/in/kashyaplanka/" target="_blank"><img
+                                        src="../static/uploads/linkedin-icon.png" alt="LinkedIn"></a>
+                                <a href="https://github.com/KashyapLanka" target="_blank"><img
+                                        src="../static/uploads/github-icon.png" alt="GitHub"></a>
+                                <a href="https://www.instagram.com/i.blame.kash/" target="_blank"><img
+                                        src="../static/uploads/instagram-icon.png" alt="Intagram"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="developer">
+                        <div class="p-avatar-container" onclick="p_flipAvatar()">
+                            <img class= "p-avatar-image-front" src="../static/uploads/pavan_avatar.png" alt="Avatar">
+                            <img class="p-avatar-image-back" src="../static/uploads/pavan_real_img.jpg"
+                                alt="Original Avatar">
+                        </div>
+                        <div class="info">
+                            <p class="name">Pavan Vinjamuri</p>
+                            <div class="contacts">
+                                <div class="email-copy-container">
+                                    <a href="#" class="email-copy-link" onclick="copyEmail('vinjamuripavan34@gmail.com', this, event)">
+                                        <img src="../static/uploads/email-icon.png" alt="Email">
+                                    </a>
+                                    <div class="copy-message">Email ID copied!</div>
+                                </div>
+
+                                <a href="https://www.linkedin.com/in/vinjamuripavan/" target="_blank"><img
+                                        src="../static/uploads/linkedin-icon.png" alt="LinkedIn"></a>
+                                <a href="https://github.com/MrPavan02" target="_blank"><img
+                                        src="../static/uploads/github-icon.png" alt="GitHub"></a>
+                                <a href="https://www.instagram.com/_mr.pavan___/" target="_blank"><img
+                                        src="../static/uploads/instagram-icon.png" alt="Intagram"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="institute">
+                    <a href="https://ln.run/WFVzT" class="location-icon" target="_blank"><img
+                            src="../static/uploads/location-icon.png" alt="Location"></a>
+                    <p>From: Vellore Institute of Technology, Amaravati, Andhra Pradesh, India</p>
+                </div>
+            </div>
+            <a href="#home" class="bottom-to-home"><i class="fa-solid fa-house"></i></a>
+        </section>
+
+        <div id="loadingOverlay">
+            <div class="loader"></div>
+            <div id="progressPercent">0%</div>
+        </div>
+
+        <script src="../static/js/script.js"></script>
+</body>
+
+</html>

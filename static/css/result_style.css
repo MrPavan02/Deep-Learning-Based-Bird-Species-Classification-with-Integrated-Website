@@ -1,0 +1,136 @@
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    color: #1e293b;
+    background: url('../uploads/result_page_background.jpg') no-repeat center center/cover;
+    position: relative;
+}
+
+/* Custom Scrollbar for Entire Page */
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #fdcac7;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #2a284f;
+    border-radius: 10px;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #2a284f;
+}
+
+
+
+h1 {
+    color: #0f172a;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+h2,
+h3 {
+    margin: 10px 0;
+}
+
+h2 {
+    font-size: 28px;
+}
+
+h3 {
+    font-size: 22px;
+}
+
+.confidence-high {
+    color: green;
+}
+
+.confidence-medium {
+    color: orange;
+}
+
+.confidence-low {
+    color: red;
+}
+
+.description-box {
+    max-width: 700px;
+    padding: 25px;
+    border-radius: 20px;
+    margin: 20px 0px;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #0f172a;
+    background: rgba(173, 216, 230, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(0, 128, 255, 0.2);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: all 0.3s ease-in-out;
+}
+
+img {
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    margin-top: 20px;
+    margin-left: 70px;
+}
+
+.go-to-index {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 22px;
+    text-decoration: none;
+    background-color: #0ea5e9;
+    padding: 10px 18px;
+    border-radius: 8px;
+    color: #002c46;
+    transition: all 0.3s ease;
+}
+
+
+.go-to-index:hover {
+    background-color: #0c4a6e;
+    color: white;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    align-items: start;
+    max-width: 1000px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+
+    .bird-image img {
+        width: 100%;
+    }
+}
+
+.bird-image img {
+    width: 75%;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.bird-description {
+    font-size: 18px;
+}
