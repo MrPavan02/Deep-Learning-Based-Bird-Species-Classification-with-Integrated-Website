@@ -121,7 +121,7 @@ This project demonstrates the practical application of deep learning in **biodiv
 ---
 
 ## **Project Demo Video**
-🎥 [**Click here to watch the demo**](https://youtu.be/vwoNxNZopgE)
+🎥 <a href="https://youtu.be/vwoNxNZopgE" target="_blank">**Click here to watch the demo**</a>
 
 ---
 
@@ -190,4 +190,5 @@ python app.py
 ```bash
 http://127.0.0.1:5000
 ```
+
 
