@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Bird Species Classification</title>
+    <link rel="icon" type="image/x-icon" href="../static/uploads/icon.png">
+    <link rel="stylesheet" href="../static/css/report_style.css">
+</head>
+
+<body>
+
+    <a href="{{ url_for('home') }}" class="go-to-index">
+        <i class="fa-solid fa-circle-arrow-left"></i>
+    </a>    
+
+    <h1 class="title">Project report</h1>
+
+    <img id="bird-1" class="bird-1" src="../static/uploads/bird-left.png" alt="Bird-1">
+    <img id="bird-2" class="bird-2" src="../static/uploads/bird-left.png" alt="Bird-2">
+    <!-- This div will hold the content and initially be hidden -->
+    <div class="content-matter" id="scrollContainer">
+        <h1>Bird Species Classification</h1>
+        <hr class="hr-main-line">
+        <h2>Introduction</h2>
+        <hr class="hr-line">
+        <p>The project focuses on classifying <strong>525 bird species</strong> using a comprehensive dataset containing
+            nearly <strong>84,635
+                training images, 2,625 test images, and 2,625 validation images</strong>. Each bird species is
+            represented by five
+            images in the test and validation sets. The images are of high quality, featuring a single bird occupying at
+            least 50% of the frame. The project aims to leverage deep learning techniques, specifically transfer
+            learning, to achieve high classification accuracy. The <strong>InceptionV3 pre-trained model</strong> from
+            Keras was utilized
+            for this purpose.</p>
+
+        <h2>Process</h2>
+        <hr class="hr-line">
+        <h3>1. Data Exploration and Visualization:</h3>
+        <ul>
+            <li><strong>Objective:</strong> Understand the dataset structure and inspect image quality.</li>
+            <li><strong>Steps:</strong>
+                <ul>
+                    <li>Explored the directory using 'os.walk()' to identify bird species classes.</li>
+                    <li>Created a sorted list of classes using 'pathlib.Path()' and 'numpy.array()'.</li>
+                    <li>Visualized random images with 'random.sample()' and 'plt.imshow()' to assess data quality.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>2. Data Preprocessing:</h3>
+        <ul>
+            <li><strong>Objective:</strong> Prepare the dataset for training with normalization and augmentation.</li>
+            <li><strong>Steps:</strong>
+                <ul>
+                    <li>Rescaled pixel values to [0, 1] for consistency.</li>
+                    <li>Applied data augmentation with 'ImageDataGenerator()' for better generalization.</li>
+                    <li>Loaded images in batches using 'flow_from_directory()' to optimize training.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>3. Model Creation and Compilation:</h3>
+        <ul>
+            <li><strong>Objective:</strong> Build and compile a custom deep learning model.</li>
+            <li><strong>Steps:</strong>
+                <ul>
+                    <li>Used InceptionV3 as the base model with pre-trained weights.</li>
+                    <li>Added custom layers like 'GlobalAveragePooling2D' and 'Dense'.</li>
+                    <li>Compiled the model with 'categorical_crossentropy' loss and 'Adam' optimizer.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>4. Model Training:</h3>
+        <ul>
+            <li><strong>Objective:</strong> Train the model and optimize its performance.</li>
+            <li><strong>Steps:</strong>
+                <ul>
+                    <li>Trained the model using 'fit()' while monitoring accuracy and loss.</li>
+                    <li>Implemented early stopping to prevent overfitting.</li>
+                </ul>
+            </li>
+        </ul>
+
+
+        <h3>5. Visualization of Training Results:</h3>
+        <ul>
+            <li><strong>Objective:</strong> Analyze model performance over epochs.</li>
+            <li><strong>Steps:</strong>
+                <ul>
+                    <li>Plotted accuracy and loss curves using matplotlib.pyplot to compare training vs. validation
+                        performance.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>6. Fine-Tuning:</h3>
+        <ul>
+            <li><strong>Objective:</strong> Improve accuracy by refining the model.</li>
+            <li><strong>Steps:</strong>
+                <ul>
+                    <li>Unfroze specific layers for fine-tuning with a lower learning rate.</li>
+                    <li>Recompiled and trained the model on the adjusted layers.</li>
+                    <li>Saved the fine-tuned model.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>Models Used</h2>
+        <hr class="hr-line">
+        <p>The primary model used for bird species classification was the <strong>InceptionV3</strong> pre-trained
+            model. This deep learning architecture was selected for its proven efficiency in handling large-scale image
+            classification tasks. The model's top layers were initially frozen to utilize the pre-trained features, and
+            later, the deeper layers were fine-tuned to enhance the model's performance.</p>
+
+        <h2>Final Results</h2>
+        <hr class="hr-line">
+        <p>The initial training of the <strong>InceptionV3 model</strong>, with the top layers frozen, yielded an
+            accuracy of <strong>89.37%</strong>.
+            Upon fine-tuning the deeper layers of the model, the accuracy improved to <strong>94.5%</strong>. This
+            significant
+            enhancement in accuracy demonstrated the effectiveness of transfer learning and model fine-tuning in
+            achieving high-performance classification for a diverse dataset of bird species.
+        </p>
+
+        <h2>Conclusion</h2>
+        <hr class="hr-line">
+        <p>This project successfully demonstrated the application of deep learning and transfer learning techniques to
+            classify <strong>525
+                bird species</strong> with high accuracy. By employing the InceptionV3 model and carefully fine-tuning
+            it, the project achieved an accuracy of <strong>94.5%</strong>. The systematic approach, from dataset
+            exploration to model
+            fine-tuning, highlighted the importance of understanding the data, visualizing results, and refining models
+            to achieve superior performance in image classification tasks.</p>
+
+    </div>
+
+
+    <script src="../static/js/report_script.js"></script>
+
+</body>
+
+</html>
